@@ -18,23 +18,23 @@ Note that the contrary of other functions, the dots corresponding to each pair o
 In probability and statistics, a probability distribution assigns a probability to each measurable subset of the possible outcomes of a random experiment. The distribution can be discrete, or continuous. A discrete distribution can be characterized by its probability (distribution) function, which specifies the probability that the random variable takes each of the different possible values.
 !!!
 
-Before we move to the next example, note how the sum of all the probabilities is equal to 1\. Indeed we will show in the next chapter that this is a property of probabilities. A probability can never be greater than 1 and the probabilities of an experiment sum to 1.
+Before we move to the next example, note how the sum of all the probabilities is equal to 1. Indeed we will show in the next chapter that this is a property of probabilities. A probability can never be greater than 1 and the probabilities of an experiment sum to 1.
 
 ## Example 2
 
-In probability theory when a random process has only two outcomes (such as "heads" or "tails", "success" or "failure") then we speak of a [**Bernoulli** (or **binomial**) **trial**](http://en.wikipedia.org/wiki/Bernoulli_trials). In the coin experiment, these two outcomes occur with the same probability (\(\scriptsize p = {1 \over 2 }\)) but in the more generic case, we say they occur with probability p and 1 - p (the sum of probabilities is 1). But what is for example the probability of getting 4 heads if I toss the coin 6 times? Note that the possible outcomes of this experiment (tossing 6 times and counting heads) can now either be 0, 1, 2, 3, 4, 5, or 6\. First, if you now consider an experiment in which \(n\) random samples are drawn from, the probability distribution of a [Bernoulli trial](http://en.wikipedia.org/wiki/Bernoulli_trials), where each sample can take a value of 0 or 1, then the sum of this \ (N\) samples can be written as:
+In probability theory when a random process has only two outcomes (such as "heads" or "tails", "success" or "failure") then we speak of a [**Bernoulli** (or **binomial**) **trial**](http://en.wikipedia.org/wiki/Bernoulli_trials). In the coin experiment, these two outcomes occur with the same probability (\(\scriptsize p = {1 \over 2 }\)) but in the more generic case, we say they occur with probability p and 1 - p (the sum of probabilities is 1). But what is for example the probability of getting 4 heads if I toss the coin 6 times? Note that the possible outcomes of this experiment (tossing 6 times and counting heads) can now either be 0, 1, 2, 3, 4, 5, or 6. First, if you now consider an experiment in which \(n\) random samples are drawn from, the probability distribution of a [Bernoulli trial](http://en.wikipedia.org/wiki/Bernoulli_trials), where each sample can take a value of 0 or 1, then the sum of this \(N\) samples can be written as:
 
 $$S = \sum_{i=1}^N x_i$$
 
 Let's say that we want to find the probability that \(S = n\), where \(n \leq N\), which is the probability that \(n\) of the \(N\) samples take on the value of 1, and \(N- n \) samples take on the value of 0\. In mathematics, this discrete (because \(n\) takes on discrete values) probability distribution is called a **binomial distribution** and can be analytically calculated with the following equation:
 
-$$Pr(S = n) = C_n^N p^k(1-p)^{(N-n)}$$
+$$Pr(S = n) = C_n^N p^N(1-p)^{(N-n)}$$
 
 for n = 0, 1, 2, ..., N, where:
 
 $$C_n^N = {{N!}\over{n!(N-n)!}}.$$
 
-The expression \(x!\) is called the factorial of x. It is equal to the product of all positive integers less than or equal to x. For example: \(\scriptsize 5! = 5 * 4 * 3 * 2  * 1 = 120\). The term \(C_n^N\) counts the number of ways in which \(n\) of the \(N\) samples can take on the value of 1. In the case of a fair coin probability p is equal to \(1\over 2\). In our example, we toss the coin 6 times thus n=6, and k can take any value between 0 and 6\. For example, if we set k=3, the binomial distribution would give us the probability that we would get 3 heads if we were to flip the coin 6 times. We can write a small C++ program to compute all the probabilities for each value of k between 0 and 6:
+The expression \(x!\) is called the factorial of x. It is equal to the product of all positive integers less than or equal to x. For example: \(\scriptsize 5! = 5 * 4 * 3 * 2  * 1 = 120\). The term \(C_n^N\) is the binomial coefficient, and counts the number of ways in which \(n\) of the \(N\) samples can take on the value of 1. In the case of a fair coin, the probability p is equal to \(1\over 2\). In our example, we toss the coin 6 times thus n=6, and k can take any value between 0 and 6\. For example, if we set k=3, the binomial distribution would give us the probability that we would get 3 heads if we were to flip the coin 6 times. We can write a small C++ program to compute all the probabilities for each value of k between 0 and 6:
 
 ```
 #include <random> 
